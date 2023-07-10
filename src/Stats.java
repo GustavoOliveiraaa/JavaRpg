@@ -4,7 +4,7 @@ public class Stats {
     private int constitution;
     private int intelligence;
     private int wisdom;
-    private int charisma;
+    protected int charisma;
 
         public int getStrenght() {
         return strenght;

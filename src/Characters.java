@@ -1,24 +1,23 @@
 import java.util.Random;
 
 public class Characters extends Stats {
-    private String name;
-    private int level;
+    protected String name;
     private int hp;
     private int mp;
     private int attack;
     private int defense;
     
-    public Characters(String name, int level, int hp, int mp, int attack, int defense,
+    public Characters(int hp, int mp, int attack, int defense,
      int strenght, int dexterity, int constitution,int intelligence, int wisdom, int charisma ) {
 
         super(strenght, dexterity, constitution, intelligence, wisdom, charisma);
         this.name = name;
-        this.level = level;
         this.hp = hp;
         this.mp = mp;
         this.attack = attack;
         this.defense = defense;
     }
+
 
     //Methods
     public void attack (Characters target) {
@@ -34,7 +33,7 @@ public class Characters extends Stats {
         }
     }
         
-    private int calculateDifficultyHit(Characters target) {
+    protected int calculateDifficultyHit(Characters target) {
         int bonusDexterity = calculateBonusDexterity();
         int difficultyHitBase = 10;
     
@@ -65,7 +64,7 @@ public class Characters extends Stats {
             }
         }
 
-    private int rollDice() {
+    protected int rollDice() {
         Random random = new Random();
         return random.nextInt(20) + 1;
     }
@@ -80,13 +79,7 @@ public class Characters extends Stats {
         this.name = name;
     }
 
-    public int getLevel() {
-        return level;
-    }
-
-    public void setLevel(int level) {
-        this.level = level;
-    }
+    
 
     public int getHp() {
         return hp;

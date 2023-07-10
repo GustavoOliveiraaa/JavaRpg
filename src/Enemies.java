@@ -4,7 +4,7 @@ public class Enemies extends Characters {
 
     public Enemies(String name, int level, int hp, int mp, int attack, int defense, int strength, int dexterity,
                    int constitution, int intelligence, int wisdom, int charisma, String description, int experiencePoints) {
-        super(name, level, hp, mp, attack, defense, strength, dexterity, constitution, intelligence, wisdom, charisma);
+        super(hp, mp, attack, defense, strength, dexterity, constitution, intelligence, wisdom, charisma);
         this.description = description;
         this.experiencePoints = experiencePoints;
     }
