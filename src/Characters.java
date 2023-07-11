@@ -3,7 +3,7 @@ import java.util.Random;
 public class Characters extends Stats {
     protected String name;
     private int hp;
-    private int mp;
+    protected int mp;
     private int attack;
     private int defense;
     
@@ -78,8 +78,6 @@ public class Characters extends Stats {
     public void setName(String name) {
         this.name = name;
     }
-
-    
 
     public int getHp() {
         return hp;

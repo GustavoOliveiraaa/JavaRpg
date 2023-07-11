@@ -5,11 +5,13 @@ public class Paladin extends Characters {
     private String className;
     private String description;
     private int level;
-    private boolean rampartActive = false;
+     boolean rampartActive = false;
+     boolean sheltronActive = false;
+
 
 
     public Paladin(String className,String description, int level) {
-        super(25, 10, 5, 5, 8, 8, 8, 8, 8, 8);
+        super(25, 10, 5, 7, 10, 8, 10, 8, 8, 10);
         this.className = "Paladin";
         this.level = 1;
         this.description = "A holy knight skilled in swordplay and protective magic.";
@@ -52,6 +54,25 @@ public class Paladin extends Characters {
         }
     }
 
+    public void sheltron() {
+        int shieldPoints = 2;
+
+        if (shieldPoints > 0) {
+            System.out.println("Activating Sheltron...");
+            sheltronActive = true;
+            shieldPoints--;
+
+            System.out.println("Incoming attack blocked with Sheltron!");
+
+            if (shieldPoints == 0) {
+                System.out.println("No shield points remaining");
+                sheltronActive = false;
+            }
+        } else {
+            System.out.println("No shiel points remaning. Sheltron cannot be activated");
+        }
+    }
+
     public void oathGauge() {
         int maxOathPoints = 100; // Valor máximo do Oath Gauge
     int increaseAmount = 20; // Quantidade de aumento no Oath Gauge a cada uso do método
@@ -62,9 +83,10 @@ public class Paladin extends Characters {
         // Paladino pode usar habilidades especiais
         System.out.println("Oath Gauge is full! Ready to use special abilities.");
         oathPoints = 0; // Reinicia o Oath Gauge após usar as habilidades especiais
+        sheltron();
     } else {
         System.out.println("Oath Gauge increased by " + increaseAmount + ".");
-    }
+        }
     }
 
     public  String getClassame() {
