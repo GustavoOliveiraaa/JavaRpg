@@ -81,15 +81,15 @@ public class Game {
         System.out.println("Select your action:");
         System.out.println("1. Attack");
         System.out.println("2. Special Skill");
-
+    
         Scanner scanner = new Scanner(System.in);
         int choice = scanner.nextInt();
-
+    
         if (choice == 1) {
             player.attack(enemy);
         } else if (choice == 2) {
             if (player instanceof BlackMage) {
-                ((BlackMage) player).castSpell(enemy);
+                getPlayerSpellAction();
             } else {
                 System.out.println("Invalid choice. Defaulting to regular attack.");
                 player.attack(enemy);
@@ -99,6 +99,29 @@ public class Game {
             player.attack(enemy);
         }
     }
+
+
+    private void getPlayerSpellAction() {
+        BlackMage blackMage = (BlackMage) player;
+    
+        System.out.println("Select your spell:");
+        System.out.println("1. Blizzard");
+        System.out.println("2. Fire");
+    
+        Scanner scanner = new Scanner(System.in);
+        int choice = scanner.nextInt();
+    
+        if (choice == 1) {
+            blackMage.castBlizzard(enemy);
+        } else if (choice == 2) {
+            blackMage.castFire(enemy);
+        } else {
+            System.out.println("Invalid spell choice. Defaulting to regular attack.");
+            player.attack(enemy);
+        }
+    }
+    
+    
 
     private void performEnemyAction() {
         enemy.enemyAction(player);
