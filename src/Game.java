@@ -120,12 +120,25 @@ public class Game {
             player.attack(enemy);
         }
     }
-    
-    
 
     private void performEnemyAction() {
         enemy.enemyAction(player);
+    
+        if (player.getHp() <= 0) {
+            System.out.println("You have been defeated!");
+            resetGame();
+        } else if (enemy.getHp() <= 0) {
+            System.out.println("You have defeated the enemy!");
+            resetGame();
+        }
     }
+    
+    private void resetGame() {
+        player = null;
+        enemy = null;
+        start();
+    }
+    
 
     public static void main(String[] args) {
         Game game = new Game();
